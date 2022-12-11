@@ -1,14 +1,14 @@
 #include <stdio.h>
 /**
  *
- *  * main() - entry to code execution
+ * main() - entry to code execution
  *
- *  *
  *
- * * Always returns 0 (Success)
+ *
+ * Always returns 0 (Success)
  *
  *   
- * */
+ */
 int main(void)
 
 {

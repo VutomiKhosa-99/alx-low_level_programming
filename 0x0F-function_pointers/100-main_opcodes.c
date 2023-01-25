@@ -2,33 +2,48 @@
 #include <stdio.h>
 
 /**
- * main - prints its own opcodes
+ * print_opcodes - print the opcodes of this program
+ * @a: address of the main function
+ * @n: number of bytes to print
  *
- * @argc: argument count
- * @argv: argument vector
- * Return: int
+ * Return: void
  */
-int main(int argc, char *argv[])
+void print_opcodes(char *a, int n)
 {
-	int i, (*a)(int, char **) = main;
+	int i;
+
+	for (i = 0; i < n; i++)
+	{
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
+			printf(" ");
+	}
+	printf("\n");
+
+}
+
+/**
+ * main - prints the opcodes of its own main function
+ * @argc: number of arguments passed to the function
+ * @argv: array of pointers to arguments
+ *
+ * Return: always O
+ */
+int main(int argc, char **argv)
+{
+	int n;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	if (atoi(argv[1]) < 0)
+	n = atoi(argv[1]);
+	if (n < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	printf("%.2x", *(unsigned char *)a);
-	a++;
-	for (i = 1; i < atoi(argv[1]); i++)
-	{
-		printf(" %.2x", *(unsigned char *)a);
-		a++;
-	}
-	printf("\n");
+	print_opcodes((char *)&main, n);
 	return (0);
 }

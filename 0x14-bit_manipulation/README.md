@@ -1,3 +1,3 @@
-## This README will be jupdated later on.
+## This README will be updated later on.
 
 Stay tuned!
